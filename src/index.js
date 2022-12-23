@@ -1,5 +1,5 @@
 import React from 'react';
-import Screens from './screens';
+import Screens from './app/screens';
 
 const App = () => {
   return <Screens />;
