@@ -4,22 +4,6 @@ const Colors = {
   tabBarIconActive: '#E1F8F4',
   tabBarIconInactive: '#66C9BA',
   transparentBackground: 'rgba(25, 25, 25, 0.1)',
-  neutral60: '#666666',
-  neutral80: '#333333',
-  neutral20: '#C8C8C8',
-  neutral40: '#888B8D',
-  brandGreen3: '#66C9BA',
-  brandYellow1: '#F18A00',
-  brandYellow2: '#F5A800',
-  brandYellow3: '#FFD040',
-  brandGreen1: '#009383',
-  statusError: '#E91717',
-  background1: '#FFF9F1',
-  background: '#E8E8E8',
-  background2: '#FFFEFC',
-  neutral15: '#E8E8E8',
-  background3: '#F6F6F6',
-  clear: '#FFFFFF00',
 };
 
 export default Colors;
