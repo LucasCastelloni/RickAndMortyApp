@@ -7,6 +7,7 @@ import PersonalInfo from '../PersonalInfo';
 import HomeIcon from '../../Assets/svg/home-icon.svg';
 import FavoritesIcon from '../../Assets/svg/favorites-icon.svg';
 import ProfileIcon from '../../Assets/svg/user-icon.svg';
+import Header from '../Home/Components/Header';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +15,7 @@ const ICON_SIZE = 25;
 
 const screenOptions = {
   headerStyle: {
-    backgroundColor: Colors.brandGreen,
+    backgroundColor: Colors.basicGreen,
   },
   headerTintColor: Colors.white,
 };
@@ -22,14 +23,14 @@ const screenOptions = {
 const Dashboard = () => (
   <Tab.Navigator
     screenOptions={{
-      tabBarStyle: {backgroundColor: Colors.brandGreen},
+      tabBarStyle: {backgroundColor: Colors.basicGreen},
       tabBarShowLabel: false,
     }}>
     <Tab.Screen
       name="Home"
       component={Home}
       options={{
-        //...screenOptions,
+        ...screenOptions,
         tabBarIcon: ({focused}) => (
           <HomeIcon
             width={ICON_SIZE}
@@ -37,13 +38,16 @@ const Dashboard = () => (
             fill={focused ? Colors.tabBarIconActive : Colors.tabBarIconInactive}
           />
         ),
+        header: ({navigation, route, options}) => {
+          return <Header />;
+        },
       }}
     />
     <Tab.Screen
       name="Favorites"
       component={Favorites}
       options={{
-        //...screenOptions,
+        ...screenOptions,
         tabBarIcon: ({focused}) => (
           <FavoritesIcon
             width={ICON_SIZE}
@@ -57,7 +61,7 @@ const Dashboard = () => (
       name="PersonalData"
       component={PersonalInfo}
       options={{
-        //...screenOptions,
+        ...screenOptions,
         tabBarIcon: ({focused}) => (
           <ProfileIcon
             width={ICON_SIZE}

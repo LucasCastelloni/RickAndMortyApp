@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Image} from 'react-native';
+import Label from '../../../../Components/Label';
 
 import styles from './styles';
 
@@ -8,9 +9,8 @@ const CharacterItem = ({character}) => {
     <View style={styles.container}>
       <Image style={styles.image} source={{uri: character.image}} />
       <View style={styles.characterInfo}>
-        <Text style={styles.title}>{character.name}</Text>
-        <Text style={styles.location}>Ubicación</Text>
-        <Text style={styles.name}>{character.location.name}</Text>
+        <Label style={styles.title}>{character.name}</Label>
+        <Label style={styles.location}>{character.location.name}</Label>
       </View>
     </View>
   );

@@ -3,6 +3,8 @@ import {FlatList, Text, View} from 'react-native';
 import {connect, useDispatch} from 'react-redux';
 import {getCharacters} from '../../../redux/actions/characters';
 import CharacterItem from './Components/CharacterItem';
+import Paginator from './Components/Paginator';
+import styles from './styles';
 
 const Home = ({charactersList}) => {
   const dispatch = useDispatch();
@@ -18,7 +20,10 @@ const Home = ({charactersList}) => {
         renderItem={renderItem}
         keyExtractor={item => item.id}
         numColumns={3}
+        style={styles.container}
+        bounces={false}
       />
+      <Paginator />
     </View>
   );
 };
