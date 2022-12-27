@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <Provider store={store}>
       <StatusBar
-        backgroundColor={Colors.brandGreen}
+        backgroundColor={Colors.basicGreen}
         barStyle={'light-content'}
       />
       <NavigationContainer>
