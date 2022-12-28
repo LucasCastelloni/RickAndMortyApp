@@ -10,5 +10,13 @@ export const translations = {
     Home: {
       welcome: 'Bienvenido',
     },
+    Login: {
+      signIn: 'Iniciar sesión',
+      requiredField: 'Campo requerido',
+      invalidEmail: 'Ingresá un mail válido',
+      firstName: 'Nombre',
+      lastName: 'Apellido',
+      email: 'Correo electrónico',
+    },
   },
 };

@@ -10,6 +10,7 @@ const Colors = {
   lightGray: '#888B8D',
   orange: '#EEB302',
   neutralBlue: '#0098AF',
+  error: '#E74C3C',
 };
 
 export default Colors;

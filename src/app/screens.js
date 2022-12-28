@@ -1,13 +1,30 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
+import Colors from '../config/colors';
 import Dashboard from './Screens/Dashboard';
+import Login from './Screens/Login';
+import LoginLogo from './Assets/svg/alien-icon.svg';
 
 const Screens = () => {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="InitialScreen"
+        name="Login"
+        component={Login}
+        options={{
+          headerStyle: {
+            backgroundColor: Colors.basicGreen,
+          },
+          headerTitle: () => <LoginLogo width={40} height={40} />,
+          headerTitleAlign: 'center',
+          headerBackTitleVisible: false,
+          headerTintColor: 'white',
+          headerShadowVisible: false,
+        }}
+      />
+      <Stack.Screen
+        name="Dashboard"
         component={Dashboard}
         options={{headerShown: false}}
       />
