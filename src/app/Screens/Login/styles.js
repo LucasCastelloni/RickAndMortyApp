@@ -12,8 +12,9 @@ export default StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 150,
+    height: 170,
     position: 'absolute',
+    //resizeMode: 'contain',
   },
   title: {
     fontSize: 26,
