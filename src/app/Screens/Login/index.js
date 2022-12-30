@@ -1,23 +1,25 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import {Image, View} from 'react-native';
+import {connect} from 'react-redux';
+import {saveUserData} from '../../../redux/actions/user';
 import CustomButton from '../../Components/CustomButton';
 import CustomTextField from '../../Components/CustomTextField';
 import Label from '../../Components/Label';
 import {FIELDS} from './constants';
 import styles from './styles';
 
-const Login = ({navigation}) => {
+const Login = ({dispatch, navigation}) => {
   const {control, handleSubmit} = useForm({});
 
-  const onSubmitForm = data => {
-    navigation.replace('Dashboard');
+  const onSubmitForm = async data => {
+    dispatch(saveUserData(data, navigation));
   };
 
   return (
     <View>
       <Image
-        source={require('../../Assets/images/background-login.png')}
+        source={require('../../Assets/images/archivo.png')}
         style={styles.image}
       />
       <View style={styles.titleContainer}>
@@ -46,4 +48,4 @@ const Login = ({navigation}) => {
   );
 };
 
-export default Login;
+export default connect()(Login);

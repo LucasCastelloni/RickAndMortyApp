@@ -6,15 +6,15 @@ export default StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     marginBottom: 30,
+    marginTop: 40,
   },
   field: {
     marginBottom: 10,
   },
   image: {
     width: '100%',
-    height: 170,
+    height: 146,
     position: 'absolute',
-    //resizeMode: 'contain',
   },
   title: {
     fontSize: 26,
@@ -29,7 +29,7 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   titleContainer: {
-    height: 150,
+    height: 145,
     justifyContent: 'center',
   },
   button: {
