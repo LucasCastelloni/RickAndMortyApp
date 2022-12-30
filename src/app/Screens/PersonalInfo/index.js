@@ -1,12 +1,19 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import {connect} from 'react-redux';
 
-const PersonalInfo = () => {
+const PersonalInfo = ({user}) => {
   return (
     <View>
-      <Text>PersonalInfo</Text>
+      <Text>{user.firstName}</Text>
     </View>
   );
 };
 
-export default PersonalInfo;
+const mapStateToProps = store => {
+  return {
+    user: store.user.user,
+  };
+};
+
+export default connect(mapStateToProps)(PersonalInfo);

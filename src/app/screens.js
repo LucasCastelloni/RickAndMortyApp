@@ -5,10 +5,10 @@ import Dashboard from './Screens/Dashboard';
 import Login from './Screens/Login';
 import LoginLogo from './Assets/svg/alien-icon.svg';
 
-const Screens = () => {
+const Screens = ({isUserLogged}) => {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName={isUserLogged ? 'Home' : 'Dashboard'}>
       <Stack.Screen
         name="Login"
         component={Login}

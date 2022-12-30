@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, StatusBar, Text, View} from 'react-native';
+import {FlatList, View} from 'react-native';
 import {connect, useDispatch} from 'react-redux';
-import Colors from '../../../config/colors';
 import {getCharacters} from '../../../redux/actions/characters';
 import CharacterItem from './Components/CharacterItem';
 import Paginator from './Components/Paginator';
