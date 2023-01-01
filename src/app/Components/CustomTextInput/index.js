@@ -10,10 +10,14 @@ const CustomTextInput = ({
   Icon,
   error,
   readOnly = false,
+  iconProps,
+  onSubmitEditing,
 }) => {
   return (
     <View style={[styles.container, error && styles.error]}>
-      {Icon && <Icon width={20} height={20} style={styles.icon} />}
+      {Icon && (
+        <Icon width={20} height={20} style={styles.icon} {...iconProps} />
+      )}
       <TextInput
         placeholder={placeholder}
         onBlur={onBlur}
@@ -21,6 +25,7 @@ const CustomTextInput = ({
         value={value}
         style={styles.text}
         editable={!readOnly}
+        onSubmitEditing={onSubmitEditing}
       />
     </View>
   );

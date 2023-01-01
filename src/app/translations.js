@@ -9,6 +9,7 @@ export const translations = {
     },
     Home: {
       welcome: 'Bienvenido',
+      search: 'Escribe el nombre de un personaje',
     },
     Login: {
       signIn: 'Iniciar sesión',

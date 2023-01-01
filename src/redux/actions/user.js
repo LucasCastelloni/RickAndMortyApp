@@ -42,7 +42,6 @@ const getUserFailure = () => {
 export const getUserData = () => async dispatch => {
   dispatch({type: 'GET_USER_DATA'});
   const jsonValue = await AsyncStorage.getItem('@user_data');
-  console.log(JSON.parse(jsonValue));
   if (jsonValue != null) {
     dispatch(getUserFailure());
   }
