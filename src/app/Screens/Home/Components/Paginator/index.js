@@ -6,17 +6,16 @@ import FirsPageIcon from '../../../../Assets/svg/first-page-icon.svg';
 import NextIcon from '../../../../Assets/svg/next-icon.svg';
 import PrevIcon from '../../../../Assets/svg/prev-icon.svg';
 import LastPageIcon from '../../../../Assets/svg/last-page-icon.svg';
-
 import styles from './styles';
-
-const Paginator = ({
-  page,
-  nextPage,
-  prevPage,
-  numberOfPages,
+import {connect} from 'react-redux';
+import {
   goToFirstPage,
   goToLastPage,
-}) => {
+  goToNextCharacterPage,
+  goToPreviousCharacterPage,
+} from '../../../../../redux/actions/characters';
+
+const Paginator = ({numberOfPages, page, dispatch}) => {
   const isLastPage = page === numberOfPages;
   const isFirsPage = page === 1;
   return (
@@ -24,11 +23,15 @@ const Paginator = ({
       <PaginatorButton
         Icon={FirsPageIcon}
         disabled={isFirsPage}
-        onPress={goToFirstPage}
+        onPress={() => {
+          dispatch(goToFirstPage());
+        }}
       />
       <PaginatorButton
         Icon={PrevIcon}
-        onPress={prevPage}
+        onPress={() => {
+          dispatch(goToPreviousCharacterPage());
+        }}
         disabled={isFirsPage}
       />
       <Label style={styles.label}>
@@ -37,16 +40,27 @@ const Paginator = ({
       </Label>
       <PaginatorButton
         Icon={NextIcon}
-        onPress={nextPage}
+        onPress={() => {
+          dispatch(goToNextCharacterPage());
+        }}
         disabled={isLastPage}
       />
       <PaginatorButton
         Icon={LastPageIcon}
         disabled={isLastPage}
-        onPress={goToLastPage}
+        onPress={() => {
+          dispatch(goToLastPage());
+        }}
       />
     </View>
   );
 };
 
-export default Paginator;
+const mapStateToProps = store => {
+  return {
+    numberOfPages: store.charactersByPage?.numberOfPages,
+    page: store.charactersByPage.currentPage,
+  };
+};
+
+export default connect(mapStateToProps)(Paginator);

@@ -18,6 +18,20 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     marginBottom: 10,
   },
+  middleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  searchBar: {
+    width: '85%',
+  },
+  touchable: {
+    borderWidth: 2,
+    borderRadius: 4,
+    padding: 6,
+    borderColor: Colors.white,
+  },
 });
 
 export default styles;

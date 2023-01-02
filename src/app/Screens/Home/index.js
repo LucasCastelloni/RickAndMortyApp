@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {FlatList, View} from 'react-native';
 import {connect, useDispatch} from 'react-redux';
 import {getCharacters} from '../../../redux/actions/characters';
@@ -6,31 +6,15 @@ import CharacterItem from './Components/CharacterItem';
 import Paginator from './Components/Paginator';
 import styles from './styles';
 
-const Home = ({charactersList, numberOfPages}) => {
+const Home = ({charactersList, characterName, page}) => {
   const dispatch = useDispatch();
-  const [page, setPage] = useState(1);
+
   useEffect(() => {
-    dispatch(getCharacters(page));
+    dispatch(getCharacters(page, characterName));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [page, characterName]);
 
   const renderItem = ({item}) => <CharacterItem character={item} />;
-
-  const nextPage = () => {
-    setPage(prevState => prevState + 1);
-  };
-
-  const prevPage = () => {
-    setPage(prevState => prevState - 1);
-  };
-
-  const goToLastPage = () => {
-    setPage(numberOfPages);
-  };
-
-  const goToFirstPage = () => {
-    setPage(1);
-  };
 
   return (
     <View style={styles.container}>
@@ -43,22 +27,17 @@ const Home = ({charactersList, numberOfPages}) => {
         bounces={false}
         contentContainerStyle={styles.scrollContainer}
       />
-      <Paginator
-        page={page}
-        nextPage={nextPage}
-        prevPage={prevPage}
-        goToFirstPage={goToFirstPage}
-        goToLastPage={goToLastPage}
-        numberOfPages={numberOfPages}
-      />
+      <Paginator />
     </View>
   );
 };
 
 const mapStateToProps = store => {
   return {
-    charactersList: store.charactersByPage?.characters,
+    charactersList: store.charactersByPage.characters,
     numberOfPages: store.charactersByPage?.numberOfPages,
+    characterName: store.charactersByPage.characterName,
+    page: store.charactersByPage.currentPage,
   };
 };
 

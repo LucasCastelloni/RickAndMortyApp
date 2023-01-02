@@ -13,9 +13,9 @@ export const getCharactersFailure = () => {
   };
 };
 
-export const getCharacters = pageNumber => async dispacth => {
+export const getCharacters = (pageNumber, characterName) => async dispacth => {
   dispacth({type: 'GET_CHARACTERS'});
-  const response = await getCharactersByPage(pageNumber);
+  const response = await getCharactersByPage(pageNumber, characterName);
   if (response.data.error) {
     dispacth(getCharactersFailure());
   } else {
@@ -25,4 +25,35 @@ export const getCharacters = pageNumber => async dispacth => {
       }),
     );
   }
+};
+
+export const changeCharacterName = name => {
+  return {
+    type: 'CHANGE_CHARACTER_NAME',
+    payload: {name: name},
+  };
+};
+
+export const goToNextCharacterPage = () => {
+  return {
+    type: 'GO_TO_NEXT_PAGE',
+  };
+};
+
+export const goToPreviousCharacterPage = () => {
+  return {
+    type: 'GO_TO_PREVIOUS_PAGE',
+  };
+};
+
+export const goToFirstPage = () => {
+  return {
+    type: 'GO_TO_FIRST_PAGE',
+  };
+};
+
+export const goToLastPage = () => {
+  return {
+    type: 'GO_TO_LAST_PAGE',
+  };
 };
