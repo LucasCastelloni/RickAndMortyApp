@@ -2,6 +2,7 @@ const initialState = {
   characters: [],
   characterName: '',
   currentPage: 1,
+  species: '',
 };
 
 export default (state = initialState, action) => {

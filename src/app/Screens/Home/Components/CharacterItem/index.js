@@ -11,6 +11,7 @@ const CharacterItem = ({character}) => {
       <View style={styles.characterInfo}>
         <Label style={styles.title}>{character.name}</Label>
         <Label style={styles.location}>{character.location.name}</Label>
+        <Label style={styles.location}>{character.species}</Label>
       </View>
     </View>
   );

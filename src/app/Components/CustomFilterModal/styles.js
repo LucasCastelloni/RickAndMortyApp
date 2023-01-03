@@ -20,4 +20,13 @@ export default StyleSheet.create({
     width: '95%',
     alignItems: 'flex-end',
   },
+  title: {
+    fontSize: 22,
+    fontFamily: 'Roboto-Medium',
+    marginBottom: 30,
+  },
+  filterButton: {
+    width: '90%',
+    marginBottom: 25,
+  },
 });
