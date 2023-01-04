@@ -1,4 +1,5 @@
 export const speciesOptions = [
+  {label: 'Todas', value: ''},
   {label: 'Humano', value: 'human'},
   {label: 'Humanoide', value: 'humanoid'},
   {label: 'Alien', value: 'alien'},
@@ -9,12 +10,14 @@ export const speciesOptions = [
 ];
 
 export const statusOptions = [
+  {label: 'Cualquiera', value: ''},
   {label: 'Vivo', value: 'alive'},
   {label: 'Muerto', value: 'dead'},
   {label: 'Desconocido', value: 'unknown'},
 ];
 
 export const genderOptions = [
+  {label: 'Todos', value: ''},
   {label: 'Masculino', value: 'male'},
   {label: 'Femenino', value: 'female'},
   {label: 'No binario', value: 'genderless'},

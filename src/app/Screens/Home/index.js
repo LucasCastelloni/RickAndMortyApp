@@ -6,13 +6,20 @@ import CharacterItem from './Components/CharacterItem';
 import Paginator from './Components/Paginator';
 import styles from './styles';
 
-const Home = ({charactersList, characterName, page}) => {
+const Home = ({
+  charactersList,
+  characterName,
+  page,
+  species,
+  gender,
+  status,
+}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCharacters(page, characterName));
+    dispatch(getCharacters(page, characterName, species, status, gender));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, characterName]);
+  }, [page, characterName, species, gender, status]);
 
   const renderItem = ({item}) => <CharacterItem character={item} />;
 
@@ -38,6 +45,9 @@ const mapStateToProps = store => {
     numberOfPages: store.charactersByPage?.numberOfPages,
     characterName: store.charactersByPage.characterName,
     page: store.charactersByPage.currentPage,
+    species: store.charactersByPage.species,
+    status: store.charactersByPage.status,
+    gender: store.charactersByPage.gender,
   };
 };
 

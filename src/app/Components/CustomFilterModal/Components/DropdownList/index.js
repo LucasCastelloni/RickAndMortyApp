@@ -28,6 +28,7 @@ const DropdownList = ({
       <View style={[styles.container, {top: dropdownTop + 5}]}>
         <FlatList
           data={options}
+          bounces={false}
           renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
           ItemSeparatorComponent={() => <View style={styles.horizontalLine} />}

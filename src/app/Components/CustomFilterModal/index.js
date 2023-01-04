@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import {Modal, View} from 'react-native';
+import {connect, useDispatch} from 'react-redux';
+import {applyFiltersValues} from '../../../redux/actions/characters';
+import CustomButton from '../CustomButton';
 import ExitButton from '../ExitButton';
 import Label from '../Label';
 import FilterButton from './Components/FilterButton';
@@ -12,11 +15,17 @@ import {
 import styles from './styles';
 
 const CustomFilterModal = ({visible, handleCloseModal}) => {
+  const dispatch = useDispatch();
   const [filterValues, setFilterValues] = useState({
     species: speciesOptions[0],
     status: statusOptions[0],
     gender: genderOptions[0],
   });
+
+  const applyFilters = () => {
+    dispatch(applyFiltersValues(filterValues));
+    handleCloseModal();
+  };
   return (
     <Modal visible={visible} transparent={true}>
       <View style={styles.modalBackground}>
@@ -36,10 +45,15 @@ const CustomFilterModal = ({visible, handleCloseModal}) => {
               />
             </View>
           ))}
+          <CustomButton
+            label={'Aplicar'}
+            onPress={applyFilters}
+            containerStyle={styles.button}
+          />
         </View>
       </View>
     </Modal>
   );
 };
 
-export default CustomFilterModal;
+export default connect()(CustomFilterModal);

@@ -3,7 +3,7 @@ import Colors from '../../../config/colors';
 
 export default StyleSheet.create({
   container: {
-    width: '75%',
+    width: '82%',
     alignItems: 'center',
     backgroundColor: Colors.white,
     justifyContent: 'center',
@@ -27,6 +27,10 @@ export default StyleSheet.create({
   },
   filterButton: {
     width: '90%',
-    marginBottom: 25,
+    marginBottom: 40,
+  },
+  button: {
+    marginTop: 10,
+    width: '80%',
   },
 });

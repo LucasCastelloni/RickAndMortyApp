@@ -13,19 +13,26 @@ export const getCharactersFailure = () => {
   };
 };
 
-export const getCharacters = (pageNumber, characterName) => async dispacth => {
-  dispacth({type: 'GET_CHARACTERS'});
-  const response = await getCharactersByPage(pageNumber, characterName);
-  if (response.data.error) {
-    dispacth(getCharactersFailure());
-  } else {
-    dispacth(
-      getCharactersSucess({
-        ...response?.data,
-      }),
+export const getCharacters =
+  (pageNumber, characterName, species, status, gender) => async dispacth => {
+    dispacth({type: 'GET_CHARACTERS'});
+    const response = await getCharactersByPage(
+      pageNumber,
+      characterName,
+      species,
+      status,
+      gender,
     );
-  }
-};
+    if (response.data.error) {
+      dispacth(getCharactersFailure());
+    } else {
+      dispacth(
+        getCharactersSucess({
+          ...response?.data,
+        }),
+      );
+    }
+  };
 
 export const changeCharacterName = name => {
   return {
@@ -55,5 +62,12 @@ export const goToFirstPage = () => {
 export const goToLastPage = () => {
   return {
     type: 'GO_TO_LAST_PAGE',
+  };
+};
+
+export const applyFiltersValues = payload => {
+  return {
+    type: 'APPLY_FILTERS',
+    payload,
   };
 };

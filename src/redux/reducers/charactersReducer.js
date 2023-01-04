@@ -3,6 +3,8 @@ const initialState = {
   characterName: '',
   currentPage: 1,
   species: '',
+  gender: '',
+  status: '',
 };
 
 export default (state = initialState, action) => {
@@ -42,6 +44,14 @@ export default (state = initialState, action) => {
     case 'GO_TO_FIRST_PAGE':
       return {
         ...state,
+        currentPage: 1,
+      };
+    case 'APPLY_FILTERS':
+      return {
+        ...state,
+        species: action.payload.species.value,
+        status: action.payload.status.value,
+        gender: action.payload.gender.value,
         currentPage: 1,
       };
     default:
