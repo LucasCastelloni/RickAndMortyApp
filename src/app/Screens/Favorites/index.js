@@ -1,12 +1,28 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
+import {connect} from 'react-redux';
+import FavoriteCharacterItem from './Components/FavoriteCharacterItem';
 
-const Favorites = () => {
+const Favorites = ({favoritesList}) => {
+  const renderItem = ({item}) => <FavoriteCharacterItem character={item} />;
   return (
     <View>
-      <Text>Favorites</Text>
+      <FlatList
+        data={favoritesList}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        //style={styles.innerContainer}
+        bounces={false}
+        //contentContainerStyle={styles.scrollContainer}
+      />
     </View>
   );
 };
 
-export default Favorites;
+const mapStateToProps = store => {
+  return {
+    favoritesList: store.charactersByPage.favorites,
+  };
+};
+
+export default connect(mapStateToProps)(Favorites);

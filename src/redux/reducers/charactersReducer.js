@@ -5,6 +5,7 @@ const initialState = {
   species: '',
   gender: '',
   status: '',
+  favorites: [],
 };
 
 export default (state = initialState, action) => {
@@ -53,6 +54,16 @@ export default (state = initialState, action) => {
         status: action.payload.status.value,
         gender: action.payload.gender.value,
         currentPage: 1,
+      };
+    case 'ADD_FAVORITE':
+      return {
+        ...state,
+        favorites: [...state.favorites, action.payload],
+      };
+    case 'GET_FAVORITES_SUCCESS':
+      return {
+        ...state,
+        favorites: action.payload,
       };
     default:
       return state;

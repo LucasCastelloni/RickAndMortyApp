@@ -8,7 +8,7 @@ import LoginLogo from './Assets/svg/alien-icon.svg';
 const Screens = ({isUserLogged}) => {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator initialRouteName={isUserLogged ? 'Home' : 'Dashboard'}>
+    <Stack.Navigator initialRouteName={isUserLogged ? 'Dashboard' : 'Login'}>
       <Stack.Screen
         name="Login"
         component={Login}

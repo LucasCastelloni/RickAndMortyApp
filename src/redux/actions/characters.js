@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {getCharactersByPage} from '../../services/charactersByPage';
 
 export const getCharactersSucess = payload => {
@@ -70,4 +71,31 @@ export const applyFiltersValues = payload => {
     type: 'APPLY_FILTERS',
     payload,
   };
+};
+
+export const addFavorite = payload => async (dispatch, getState) => {
+  await dispatch({
+    type: 'ADD_FAVORITE',
+    payload,
+  });
+  const favorites = getState().charactersByPage.favorites;
+  try {
+    const jsonValue = JSON.stringify([...favorites, payload]);
+    await AsyncStorage.setItem('@favorites', jsonValue);
+  } catch (error) {}
+};
+
+const getFavoritesSuccess = payload => {
+  return {
+    type: 'GET_FAVORITES_SUCCESS',
+    payload,
+  };
+};
+
+export const getFavorites = () => async dispatch => {
+  dispatch({type: 'GET_FAVORITES'});
+  const jsonValue = await AsyncStorage.getItem('@favorites');
+  if (jsonValue != null) {
+    dispatch(getFavoritesSuccess(JSON.parse(jsonValue)));
+  }
 };

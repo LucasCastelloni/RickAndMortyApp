@@ -3,9 +3,11 @@ import {connect} from 'react-redux';
 import LoadingSplash from './app/Components/LoadingSplash';
 import Screens from './app/screens';
 import {getUserData} from './redux/actions/user';
+import {getFavorites} from './redux/actions/characters';
 
 const App = ({dispatch, getUserLoading, isUserLogged}) => {
   useEffect(() => {
+    dispatch(getFavorites());
     dispatch(getUserData());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -11,6 +11,8 @@ const Colors = {
   orange: '#EEB302',
   neutralBlue: '#0098AF',
   error: '#E74C3C',
+  basicRed: '#AF0015',
+  greenTone: '#708583',
 };
 
 export default Colors;

@@ -5,39 +5,35 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    borderRadius: 100,
+    borderRadius: 22,
     justifyContent: 'center',
     borderWidth: 2,
     borderColor: Colors.white,
   },
   container: {
-    width: '31%',
-    backgroundColor: Colors.orange,
+    width: '95%',
+    backgroundColor: Colors.greenTone,
     marginHorizontal: 5,
     alignItems: 'center',
     borderRadius: 15,
     marginBottom: 10,
     paddingTop: 5,
+    flexDirection: 'row',
+    paddingHorizontal: 10,
   },
   title: {
     fontSize: 16,
     fontFamily: 'Roboto-Medium',
     color: Colors.white,
-    textAlign: 'center',
   },
   location: {
     fontSize: 13,
-    textAlign: 'center',
     color: Colors.gray,
     marginTop: 5,
     marginBottom: 5,
   },
-  touchable: {
-    width: 30,
-    height: 30,
-    borderRadius: 100,
-    justifyContent: 'center',
-    alignContent: 'center',
+  characterInfo: {
+    marginLeft: 15,
   },
 });
 
