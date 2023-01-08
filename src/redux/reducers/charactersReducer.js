@@ -65,6 +65,13 @@ export default (state = initialState, action) => {
         ...state,
         favorites: action.payload,
       };
+    case 'REMOVE_FAVORITE':
+      return {
+        ...state,
+        favorites: state.favorites.filter(
+          favorite => favorite.id !== action.payload.id,
+        ),
+      };
     default:
       return state;
   }

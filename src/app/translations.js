@@ -10,6 +10,9 @@ export const translations = {
     Home: {
       welcome: 'Bienvenido',
       search: 'Escribe el nombre de un personaje',
+      filters: 'Filtros',
+      apply: 'Aplicar',
+      page: 'Página',
     },
     Login: {
       signIn: 'Iniciar sesión',
@@ -18,6 +21,8 @@ export const translations = {
       firstName: 'Nombre',
       lastName: 'Apellido',
       email: 'Correo electrónico',
+      welcome: 'Bienvenido',
+      subtitle: 'Inicia sesión',
     },
   },
 };

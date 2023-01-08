@@ -80,7 +80,7 @@ export const addFavorite = payload => async (dispatch, getState) => {
   });
   const favorites = getState().charactersByPage.favorites;
   try {
-    const jsonValue = JSON.stringify([...favorites, payload]);
+    const jsonValue = JSON.stringify(favorites);
     await AsyncStorage.setItem('@favorites', jsonValue);
   } catch (error) {}
 };
@@ -98,4 +98,16 @@ export const getFavorites = () => async dispatch => {
   if (jsonValue != null) {
     dispatch(getFavoritesSuccess(JSON.parse(jsonValue)));
   }
+};
+
+export const removeFavorite = payload => async (dispatch, getState) => {
+  await dispatch({
+    type: 'REMOVE_FAVORITE',
+    payload,
+  });
+  const favorites = getState().charactersByPage.favorites;
+  try {
+    const jsonValue = JSON.stringify(favorites);
+    await AsyncStorage.setItem('@favorites', jsonValue);
+  } catch (error) {}
 };

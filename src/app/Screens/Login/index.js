@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import {Image, View} from 'react-native';
@@ -23,8 +24,8 @@ const Login = ({dispatch, navigation}) => {
         style={styles.image}
       />
       <View style={styles.titleContainer}>
-        <Label style={styles.title}>Bienvenido</Label>
-        <Label style={styles.subtitle}>Inicia Sesión</Label>
+        <Label style={styles.title}>{i18next.t('Login:welcome')}</Label>
+        <Label style={styles.subtitle}>{i18next.t('Login:subtitle')}</Label>
       </View>
       <View style={styles.fieldsContainer}>
         {FIELDS.map(field => (
@@ -40,7 +41,7 @@ const Login = ({dispatch, navigation}) => {
         ))}
       </View>
       <CustomButton
-        label={'Iniciar Sesión'}
+        label={i18next.t('Login:signIn')}
         onPress={handleSubmit(onSubmitForm)}
         containerStyle={styles.button}
       />

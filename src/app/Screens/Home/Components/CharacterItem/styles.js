@@ -20,17 +20,19 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
   title: {
-    fontSize: 16,
+    fontSize: 17,
     fontFamily: 'Roboto-Medium',
     color: Colors.white,
     textAlign: 'center',
+    height: 22,
+    marginTop: 5,
   },
-  location: {
+  status: {
     fontSize: 13,
     textAlign: 'center',
-    color: Colors.gray,
-    marginTop: 5,
-    marginBottom: 5,
+    color: Colors.darkGray,
+    marginTop: 8,
+    marginBottom: 8,
   },
   touchable: {
     width: 30,
@@ -38,6 +40,25 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     justifyContent: 'center',
     alignContent: 'center',
+  },
+  itemButtons: {
+    flexDirection: 'row',
+    width: '80%',
+    marginBottom: 10,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  seeMoreButton: {
+    flexDirection: 'row',
+    backgroundColor: Colors.transparentBackground,
+    paddingHorizontal: 5,
+    paddingVertical: 7,
+    borderRadius: 6,
+    alignItems: 'center',
+  },
+  seeMoreLabel: {
+    color: Colors.white,
+    marginRight: 4,
   },
 });
 

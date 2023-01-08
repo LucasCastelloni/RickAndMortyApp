@@ -4,6 +4,7 @@ import Colors from '../config/colors';
 import Dashboard from './Screens/Dashboard';
 import Login from './Screens/Login';
 import LoginLogo from './Assets/svg/alien-icon.svg';
+import Character from './Screens/Character';
 
 const Screens = ({isUserLogged}) => {
   const Stack = createNativeStackNavigator();
@@ -27,6 +28,16 @@ const Screens = ({isUserLogged}) => {
         name="Dashboard"
         component={Dashboard}
         options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Character"
+        component={Character}
+        options={{
+          headerStyle: {
+            backgroundColor: Colors.basicGreen,
+          },
+          headerTintColor: 'white',
+        }}
       />
     </Stack.Navigator>
   );

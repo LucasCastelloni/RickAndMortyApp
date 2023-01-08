@@ -14,6 +14,7 @@ import {
   goToNextCharacterPage,
   goToPreviousCharacterPage,
 } from '../../../../../redux/actions/characters';
+import i18next from 'i18next';
 
 const Paginator = ({numberOfPages, page, dispatch}) => {
   const isLastPage = page === numberOfPages;
@@ -35,7 +36,7 @@ const Paginator = ({numberOfPages, page, dispatch}) => {
         disabled={isFirsPage}
       />
       <Label style={styles.label}>
-        Página <Label style={styles.number}>{page}</Label> de{' '}
+        {i18next.t('Home:page')} <Label style={styles.number}>{page}</Label> de{' '}
         <Label style={styles.number}>{numberOfPages}</Label>
       </Label>
       <PaginatorButton

@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import React, {useState} from 'react';
 import {Modal, View} from 'react-native';
 import {connect, useDispatch} from 'react-redux';
@@ -33,7 +34,7 @@ const CustomFilterModal = ({visible, handleCloseModal}) => {
           <View style={styles.exitButton}>
             <ExitButton onPress={handleCloseModal} />
           </View>
-          <Label style={styles.title}>Filtros</Label>
+          <Label style={styles.title}>{i18next.t('Home:filters')}</Label>
           {FILTER_SETTINGS.map(filter => (
             <View key={filter.id} style={styles.filterButton}>
               <FilterButton
@@ -46,7 +47,7 @@ const CustomFilterModal = ({visible, handleCloseModal}) => {
             </View>
           ))}
           <CustomButton
-            label={'Aplicar'}
+            label={i18next.t('Home:apply')}
             onPress={applyFilters}
             containerStyle={styles.button}
           />
