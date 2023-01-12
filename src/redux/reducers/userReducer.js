@@ -17,7 +17,9 @@ export default (state = initialState, action) => {
       return {
         ...state,
         userLoading: false,
-        user: {...action.payload},
+        user: {
+          ...action.payload,
+        },
       };
     case 'SAVE_USER_DATA_FAILURE':
       return {
@@ -34,7 +36,9 @@ export default (state = initialState, action) => {
         ...state,
         getUserLoading: false,
         isUserLogged: true,
-        user: {...action.payload},
+        user: {
+          ...action.payload,
+        },
       };
     case 'GET_USER_DATA_FAILURE':
       return {
