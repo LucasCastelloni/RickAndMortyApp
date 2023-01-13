@@ -47,6 +47,7 @@ const Dashboard = () => (
       name="Favorites"
       component={Favorites}
       options={{
+        title: 'Mis favoritos',
         ...screenOptions,
         tabBarIcon: ({focused}) => (
           <FavoritesIcon
@@ -61,6 +62,7 @@ const Dashboard = () => (
       name="PersonalData"
       component={PersonalInfo}
       options={{
+        title: 'Datos del usuario',
         ...screenOptions,
         tabBarIcon: ({focused}) => (
           <ProfileIcon
