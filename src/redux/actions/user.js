@@ -43,24 +43,28 @@ const getUserFailure = () => {
 
 export const getUserData = () => async dispatch => {
   dispatch({type: 'GET_USER_DATA'});
-  const googleUserInfo = await GoogleSignin.signInSilently();
-  if (googleUserInfo) {
-    const googleUserData = googleUserInfo.user;
-    dispatch(
-      getUserSuccess({
-        firstName: googleUserData.givenName,
-        lastName: googleUserData.familyName,
-        email: googleUserData.email,
-      }),
-    );
-  } else {
-    const jsonValue = await AsyncStorage.getItem('@user_data');
-    const userData = jsonValue != null ? JSON.parse(jsonValue) : null;
-    if (userData) {
-      dispatch(getUserSuccess(userData));
+  try {
+    const googleUserInfo = await GoogleSignin.signInSilently();
+    if (googleUserInfo) {
+      const googleUserData = googleUserInfo.user;
+      dispatch(
+        getUserSuccess({
+          firstName: googleUserData.givenName,
+          lastName: googleUserData.familyName,
+          email: googleUserData.email,
+        }),
+      );
     } else {
-      dispatch(getUserFailure());
+      const jsonValue = await AsyncStorage.getItem('@user_data');
+      const userData = jsonValue != null ? JSON.parse(jsonValue) : null;
+      if (userData) {
+        dispatch(getUserSuccess(userData));
+      } else {
+        dispatch(getUserFailure());
+      }
     }
+  } catch (e) {
+    dispatch(getUserFailure());
   }
 };
 
