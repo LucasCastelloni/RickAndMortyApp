@@ -3,7 +3,7 @@ const Colors = {
   white: '#FFFFFF',
   tabBarIconActive: '#E1F8F4',
   tabBarIconInactive: '#66C9BA',
-  transparentBackground: 'rgba(25, 25, 25, 0.1)',
+  transparentBackground: 'rgba(25, 25, 25, 0.2)',
   darkGray: '#666666',
   gray: '#333333',
   lighterGray: '#C8C8C8',
@@ -13,6 +13,7 @@ const Colors = {
   error: '#E74C3C',
   basicRed: '#AF0015',
   greenTone: '#708583',
+  modalBackground: 'rgba(25, 25, 25, 0.3)',
 };
 
 export default Colors;

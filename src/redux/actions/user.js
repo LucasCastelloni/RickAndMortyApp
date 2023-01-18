@@ -69,13 +69,10 @@ export const getUserData = () => async dispatch => {
 };
 
 export const signInWithGoogle = navigation => async dispatch => {
-  // Check if your device supports Google Play
+  dispatch({type: 'SAVE_USER_DATA'});
   await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
-  // Get the users ID token
   const {idToken} = await GoogleSignin.signIn();
-  // Create a Google credential with the token
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-  // Sign-in the user with the credential
   const data = await auth().signInWithCredential(googleCredential);
   const additionalUserInfo = data.additionalUserInfo.profile;
   const userData = {
@@ -83,6 +80,6 @@ export const signInWithGoogle = navigation => async dispatch => {
     lastName: additionalUserInfo.family_name,
     email: additionalUserInfo.email,
   };
-  await dispatch(saveUserSuccess(userData));
+  dispatch(saveUserSuccess(userData));
   navigation.replace('Dashboard');
 };

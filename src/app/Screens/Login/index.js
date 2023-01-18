@@ -11,8 +11,9 @@ import Label from '../../Components/Label';
 import {FIELDS} from './constants';
 import styles from './styles';
 import GoogleIcon from '../../Assets/svg/google-icon.svg';
+import Loading from '../../Components/Loading';
 
-const Login = ({dispatch, navigation}) => {
+const Login = ({dispatch, navigation, loading}) => {
   const {control, handleSubmit} = useForm({});
 
   useEffect(() => {
@@ -33,6 +34,7 @@ const Login = ({dispatch, navigation}) => {
         source={require('../../Assets/images/archivo.png')}
         style={styles.image}
       />
+      <Loading visible={loading} />
       <View style={styles.titleContainer}>
         <Label style={styles.title}>{i18next.t('Login:welcome')}</Label>
         <Label style={styles.subtitle}>{i18next.t('Login:subtitle')}</Label>
@@ -72,4 +74,10 @@ const Login = ({dispatch, navigation}) => {
   );
 };
 
-export default connect()(Login);
+const mapStateToProps = store => {
+  return {
+    loading: store.user.userLoading,
+  };
+};
+
+export default connect(mapStateToProps)(Login);
