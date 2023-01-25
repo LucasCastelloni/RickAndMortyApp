@@ -42,4 +42,31 @@ export default StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     marginBottom: 5,
   },
+  button: {
+    backgroundColor: Colors.orange,
+    width: '80%',
+  },
+  touchable: {
+    backgroundColor: Colors.orange,
+    padding: 5,
+    borderRadius: 50,
+    position: 'absolute',
+    marginTop: -20,
+    marginLeft: 16,
+  },
+  photoButton: {
+    backgroundColor: Colors.neutralBlue,
+    borderRadius: 5,
+    marginBottom: 10,
+    flexDirection: 'row',
+    paddingVertical: 8,
+    width: '70%',
+    paddingHorizontal: 10,
+  },
+  photoLabel: {
+    color: Colors.white,
+    fontFamily: 'Roboto-Medium',
+    fontSize: 16,
+    marginLeft: 7,
+  },
 });

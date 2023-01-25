@@ -1,32 +1,52 @@
 import React, {useState} from 'react';
-import {Image, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
+import Colors from '../../../config/colors';
+import CustomModal from '../../Components/CustomModal';
 import Label from '../../Components/Label';
-import AddPhotoButton from './Components/AddPhotoButton';
 import styles from './styles';
-import {USER_DATA} from './utils';
-
+import {PHOTO_BUTTONS, USER_DATA} from './utils';
+import PlusIcon from '../../Assets/svg/plus-icon.svg';
 const PersonalInfo = ({user}) => {
   const [imageSource, setImageSource] = useState(null);
+  const [photoModalVisible, setPhotoModalVisible] = useState(false);
+  const handleCloseModal = () => {
+    setPhotoModalVisible(false);
+  };
   return (
     <View style={styles.container}>
+      <CustomModal
+        handleCloseModal={handleCloseModal}
+        visible={photoModalVisible}
+        title={'Agregá tu foto'}>
+        {PHOTO_BUTTONS(setImageSource, handleCloseModal).map(button => (
+          <TouchableOpacity onPress={button.onPress} style={styles.photoButton}>
+            <button.icon width={20} height={20} fill={Colors.white} />
+            <Label style={styles.photoLabel}>{button.label}</Label>
+          </TouchableOpacity>
+        ))}
+      </CustomModal>
       <View style={styles.imageContainer}>
-        <Image
-          source={require('../../Assets/images/profile-placeholder.png')}
-          style={styles.image}
-        />
-        <AddPhotoButton setImage={setImageSource} />
-        {imageSource?.assets &&
-          imageSource?.assets.map(({uri}) => (
-            <View key={uri} style={styles.image}>
-              <Image
-                resizeMode="cover"
-                resizeMethod="scale"
-                style={{width: 200, height: 200}}
-                source={{uri: uri}}
-              />
-            </View>
-          ))}
+        {imageSource?.assets ? (
+          <Image
+            source={{uri: imageSource?.assets[0].uri}}
+            style={styles.image}
+          />
+        ) : (
+          <Image
+            source={require('../../Assets/images/profile-placeholder.png')}
+            style={styles.image}
+          />
+        )}
+        <View>
+          <TouchableOpacity
+            style={styles.touchable}
+            onPress={() => {
+              setPhotoModalVisible(true);
+            }}>
+            <PlusIcon height={22} width={22} stroke={Colors.white} />
+          </TouchableOpacity>
+        </View>
       </View>
       <View style={styles.infoContainer}>
         {USER_DATA(user).map(item => (
