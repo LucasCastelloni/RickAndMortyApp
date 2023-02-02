@@ -1,13 +1,29 @@
 import {StyleSheet} from 'react-native';
+import Colors from '../../../config/colors';
 
 const styles = StyleSheet.create({
   image: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
     borderRadius: 100,
     justifyContent: 'center',
-    borderWidth: 2,
-   // borderColor: Colors.white,
+    borderWidth: 3,
+    borderColor: Colors.white,
+  },
+  imageContainer: {
+    backgroundColor: Colors.neutralBlue,
+    alignItems: 'center',
+    width: '90%',
+    alignSelf: 'center',
+    marginTop: 30,
+    borderRadius: 15,
+    paddingVertical: 15,
+  },
+  nameLabel: {
+    color: Colors.white,
+    fontWeight: '700',
+    fontSize: 25,
+    marginBottom: 10,
   },
 });
 

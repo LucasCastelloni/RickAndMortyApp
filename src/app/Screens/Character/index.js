@@ -1,18 +1,22 @@
 import React from 'react';
 import {Image, View} from 'react-native';
 import Label from '../../Components/Label';
+import InfoItem from './Components/InfoItem';
+import {CHARACTER_INFO} from './constants';
 import styles from './styles';
 
 const Character = ({route}) => {
   const character = route.params.character;
+  console.log(character);
   return (
     <View>
-      <Image style={styles.image} source={{uri: character.image}} />
-      <Label>{character.name}</Label>
-      <Label>{character.location.name}</Label>
-      <Label>{character.species}</Label>
-      <Label>{character.gender}</Label>
-      <Label>{character.status}</Label>
+      <View style={styles.imageContainer}>
+        <Label style={styles.nameLabel}>{character.name}</Label>
+        <Image style={styles.image} source={{uri: character.image}} />
+      </View>
+      {CHARACTER_INFO(character).map(item => (
+        <InfoItem item={item} />
+      ))}
     </View>
   );
 };
