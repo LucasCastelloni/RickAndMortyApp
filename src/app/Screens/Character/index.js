@@ -7,7 +7,6 @@ import styles from './styles';
 
 const Character = ({route}) => {
   const character = route.params.character;
-  console.log(character);
   return (
     <View>
       <View style={styles.imageContainer}>
