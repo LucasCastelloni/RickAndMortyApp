@@ -8,6 +8,8 @@ Functionalities
 - Interacts with the Rick and Morty Api (https://rickandmortyapi.com/)
 - Animations using the native drivers and Json files (Lottie)
 - Redux to manage the App state
+- Camera functionality
+- Custom fonts (Roboto)
 
 ## Steps
 
