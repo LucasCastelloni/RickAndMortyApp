@@ -28,7 +28,6 @@ const Header = () => {
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.innerContainer}>
-        {/* <SpaceshipIcon width={25} height={25} /> */}
         <Label style={styles.label}>{i18next.t('Home:welcome')}</Label>
         <View style={styles.middleContainer}>
           <View style={styles.searchBar}>

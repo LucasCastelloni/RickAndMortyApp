@@ -15,9 +15,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '90%',
     alignSelf: 'center',
-    marginTop: 30,
+    marginTop: 15,
     borderRadius: 15,
     paddingVertical: 15,
+    marginBottom: 15,
   },
   nameLabel: {
     color: Colors.white,

@@ -33,10 +33,12 @@ const Screens = ({isUserLogged}) => {
         name="Character"
         component={Character}
         options={{
+          title: 'Personaje',
           headerStyle: {
             backgroundColor: Colors.basicGreen,
           },
           headerTintColor: 'white',
+          headerBackTitleVisible: false,
         }}
       />
     </Stack.Navigator>
