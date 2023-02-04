@@ -24,5 +24,17 @@ export const translations = {
       welcome: 'Bienvenido',
       subtitle: 'Inicia sesión',
     },
+    PersonalInfo: {
+      logout: 'Cerrar sesión',
+      areYouSure: '¿Desea cerrar la sesión?',
+      accept: 'Aceptar',
+      close: 'Cerrar',
+      name: 'Nombre',
+      lastName: 'Apellido',
+      email: 'Correo electrónico',
+      takePhoto: 'Tomar Foto',
+      pickFromGallery: 'Elegir de la galería',
+      addPhoto: 'Agregar foto',
+    },
   },
 };

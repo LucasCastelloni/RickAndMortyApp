@@ -7,9 +7,13 @@ import Label from '../../Components/Label';
 import styles from './styles';
 import {PHOTO_BUTTONS, USER_DATA} from './utils';
 import PlusIcon from '../../Assets/svg/plus-icon.svg';
+import CustomButton from '../../Components/CustomButton';
+import SpaceShipIcon from '../../Assets/svg/spaceship-icon.svg';
+import i18next from 'i18next';
 const PersonalInfo = ({user}) => {
   const [imageSource, setImageSource] = useState(null);
   const [photoModalVisible, setPhotoModalVisible] = useState(false);
+  const [logoutModalVisible, setLogoutModalVisible] = useState(false);
   const handleCloseModal = () => {
     setPhotoModalVisible(false);
   };
@@ -18,13 +22,41 @@ const PersonalInfo = ({user}) => {
       <CustomModal
         handleCloseModal={handleCloseModal}
         visible={photoModalVisible}
-        title={'Agregá tu foto'}>
+        title={i18next.t('PersonalInfo:addPhoto')}
+        Icon={SpaceShipIcon}>
         {PHOTO_BUTTONS(setImageSource, handleCloseModal).map(button => (
-          <TouchableOpacity onPress={button.onPress} style={styles.photoButton}>
+          <TouchableOpacity
+            onPress={button.onPress}
+            style={styles.photoButton}
+            key={button.id}>
             <button.icon width={20} height={20} fill={Colors.white} />
             <Label style={styles.photoLabel}>{button.label}</Label>
           </TouchableOpacity>
         ))}
+      </CustomModal>
+      <CustomModal
+        handleCloseModal={() => {
+          setLogoutModalVisible(false);
+        }}
+        visible={logoutModalVisible}
+        title={i18next.t('PersonalInfo:areYouSure')}
+        Icon={SpaceShipIcon}>
+        <View style={styles.logoutButtons}>
+          <CustomButton
+            label={i18next.t('PersonalInfo:close')}
+            onPress={() => {
+              setLogoutModalVisible(false);
+            }}
+            containerStyle={styles.closeButton}
+          />
+          <CustomButton
+            label={i18next.t('PersonalInfo:accept')}
+            onPress={() => {
+              setLogoutModalVisible(false);
+            }}
+            containerStyle={[styles.closeButton, styles.acceptButton]}
+          />
+        </View>
       </CustomModal>
       <View style={styles.imageContainer}>
         {imageSource?.assets ? (
@@ -57,6 +89,13 @@ const PersonalInfo = ({user}) => {
           </View>
         ))}
       </View>
+      <CustomButton
+        label={i18next.t('PersonalInfo:logout')}
+        onPress={() => {
+          setLogoutModalVisible(true);
+        }}
+        containerStyle={styles.button}
+      />
     </View>
   );
 };

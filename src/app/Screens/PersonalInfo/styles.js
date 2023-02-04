@@ -6,6 +6,9 @@ export default StyleSheet.create({
   container: {
     alignItems: 'center',
     paddingTop: 30,
+    justifyContent: 'space-between',
+    flex: 1,
+    paddingBottom: 25,
   },
   image: {
     width: 130,
@@ -33,9 +36,7 @@ export default StyleSheet.create({
   item: {
     marginBottom: 25,
   },
-  infoContainer: {
-    marginTop: 40,
-  },
+  infoContainer: {},
   hline: {
     width: '90%',
     borderBottomColor: Colors.lightGray,
@@ -68,5 +69,17 @@ export default StyleSheet.create({
     fontFamily: 'Roboto-Medium',
     fontSize: 16,
     marginLeft: 7,
+  },
+  logoutButtons: {
+    flexDirection: 'row',
+    width: '88%',
+    justifyContent: 'space-between',
+  },
+  closeButton: {
+    width: '48%',
+    backgroundColor: Colors.orange,
+  },
+  acceptButton: {
+    backgroundColor: Colors.basicGreen,
   },
 });

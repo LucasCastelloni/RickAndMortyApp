@@ -24,7 +24,7 @@ const FavoriteCharacterItem = ({character}) => {
   const moveToLeft = () => {
     Animated.timing(moveAnimation, {
       toValue: -135,
-      duration: 750,
+      duration: 500,
       useNativeDriver: false,
     }).start();
   };
@@ -32,7 +32,7 @@ const FavoriteCharacterItem = ({character}) => {
   const moveToRight = () => {
     Animated.timing(moveAnimation, {
       toValue: 0,
-      duration: 750,
+      duration: 500,
       useNativeDriver: false,
     }).start();
   };

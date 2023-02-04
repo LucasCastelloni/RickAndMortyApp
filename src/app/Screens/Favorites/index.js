@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {FlatList, View} from 'react-native';
 import {connect} from 'react-redux';
 import FavoriteCharacterItem from './Components/FavoriteCharacterItem';
 import styles from './styles';

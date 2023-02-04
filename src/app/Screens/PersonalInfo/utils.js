@@ -1,17 +1,18 @@
+import i18next from 'i18next';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import CameraIcon from '../../Assets/svg/camera-icon.svg';
 
 import GalleryIcon from '../../Assets/svg/gallery-icon.svg';
 
 export const USER_DATA = user => [
-  {title: 'Nombre', info: user.firstName, id: 1},
-  {title: 'Apellido', info: user.lastName, id: 2},
-  {title: 'Correo', info: user.email, id: 3},
+  {title: i18next.t('PersonalInfo:name'), info: user.firstName, id: 1},
+  {title: i18next.t('PersonalInfo:lastName'), info: user.lastName, id: 2},
+  {title: i18next.t('PersonalInfo:email'), info: user.email, id: 3},
 ];
 
 export const PHOTO_BUTTONS = (setImageSource, handleCloseModal) => [
   {
-    label: 'Tomar foto',
+    label: i18next.t('PersonalInfo:takePhoto'),
     icon: CameraIcon,
     onPress: () => {
       launchCamera(
@@ -24,9 +25,10 @@ export const PHOTO_BUTTONS = (setImageSource, handleCloseModal) => [
       );
       handleCloseModal();
     },
+    id: 1,
   },
   {
-    label: 'Elegir de la galería',
+    label: i18next.t('PersonalInfo:pickFromGallery'),
     icon: GalleryIcon,
     onPress: () => {
       launchImageLibrary(
@@ -39,5 +41,6 @@ export const PHOTO_BUTTONS = (setImageSource, handleCloseModal) => [
       );
       handleCloseModal();
     },
+    id: 2,
   },
 ];
